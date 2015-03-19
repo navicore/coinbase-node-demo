@@ -1,0 +1,76 @@
+extends layout
+
+block content
+  div.top
+  div.container
+
+    div.content(role='tabpanel')
+      ul#myTab.nav.nav-tabs(role='tablist')
+        li.active(role='presentation')
+          a(href='#accounts', aria-controls='accounts', 
+            role='tab', data-toggle='tab') Accounts
+        li(role='presentation')
+          a(href='#currencies', aria-controls='currencies', 
+            role='tab', data-toggle='tab') Currencies
+        li(role='presentation')
+          a(href='#rates', aria-controls='rates', role='tab', 
+            data-toggle='tab') Exchange Rates
+        li(role='presentation')
+          a(href='#contacts', aria-controls='contacts', role='tab', 
+            data-toggle='tab') Contacts
+      div.tab-content
+        div(id='accounts'   , role='tabpanel').active.tab-pane.in.fade
+        div(id='currencies' , role='tabpanel').tab-pane.fade
+        div(id='rates'      , role='tabpanel').tab-pane.fade
+        div(id='contacts'   , role='tabpanel').tab-pane.fade
+
+    div.footer
+
+    #acctModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='acctModal', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+            |         
+            h4#acctModalLabel.modal-title Modal title
+          |       
+          .modal-body
+            div(id='acctDetail')
+          |       
+          .modal-footer
+
+    script(type='text/javascript').
+      renderAccounts();
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        function isEnd(str, suffix) {
+          return str.indexOf(suffix, str.length - suffix.length) !== -1;
+        };
+        if (isEnd(e.target.toString(), 'accounts')) {
+          renderAccounts();
+          //refreshAccounts();
+          return;
+        };
+        if (isEnd(e.target.toString(), 'currencies')) {
+          renderCurrencies();
+          return;
+        };
+        if (isEnd(e.target.toString(), 'contacts')) {
+          renderContacts();
+          return;
+        };
+        if (isEnd(e.target.toString(), 'rates')) {
+          renderRates();
+          return;
+        };
+       }
+      )
+      $('#acctModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var name = button.data('name')
+        var mykey = button.data('mykey')
+        var modal = $(this)
+        modal.find('.modal-title').text(name)
+        renderAcctDetail(mykey, name);
+      })
+

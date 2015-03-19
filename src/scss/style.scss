@@ -1,0 +1,17 @@
+//colors
+$color_cerulean_approx: #00b7ff;
+
+//fonts
+$font_0: Lucida Grande;
+$font_1: Helvetica;
+$font_2: Arial;
+$font_3: sans-serif;
+
+body {
+    padding: 50px;
+      font: 14px $font_0, $font_1, $font_2, $font_3;
+    }
+    a {
+        color: #00B7FF;
+      }
+
