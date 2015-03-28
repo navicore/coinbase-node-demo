@@ -1,6 +1,12 @@
 coinbase-node-demo
 =========
 
+**_under construction_**
+
+**_under construction_**
+
+**_under construction_**
+
 Written to demonstrate the coinbase-node Node.js package.
 
 In the process of creating the demo I tried to get caught up on node web development so I use some libraries and tools here that make the system too complicated to be a good reference use of the API.  But regardless, it all works for me and I learned a lot.
