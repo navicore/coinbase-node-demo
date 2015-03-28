@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/navicore/coinbase-node-demo.svg?branch=master)](https://travis-ci.org/navicore/coinbase-node-demo)
+
 coinbase-node-demo
 =========
 
