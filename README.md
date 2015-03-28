@@ -32,7 +32,15 @@ and of coarse coinbase-node.
 
 from a computer that has node 0.12 and npm 2.x installed:
 
-blah blah blah blah
+1. go to coinbase and define an application, creating a CLIENT_ID and a CLIENT_SECRET
+2. install and start redis - on osx `brew install redis`
+3. install gulp `npm install -g gulp`
+4. cd into a clone of this repo and `npm install`
+5. run the command:
+
+```
+REDIS_HOST=<YOUR_REDIS_HOST> CLIENT_ID=<YOUR_CLIENT_ID> CLIENT_SECRET=<YOUR_CLIENT_SECRET> REDIR_URL=http://localhost:3000/callback gulp live
+```
 
 ### from Docker
 
